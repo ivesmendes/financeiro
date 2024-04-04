@@ -1,18 +1,19 @@
-package com.agespisa.servlet.model;
+package com.agespisa.servlet.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.component.html.HtmlInputText;
 
 @ManagedBean
 @ViewScoped
-public class NomesBean {
+public class NomesBean implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String nome;
 	private List<String> nomes = new ArrayList<>();

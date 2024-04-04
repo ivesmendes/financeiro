@@ -1,4 +1,4 @@
-package com.agespisa.servlet.model;
+package com.agespisa.servlet.controller;
 
 import javax.faces.bean.ManagedBean;
 

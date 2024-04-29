@@ -22,7 +22,9 @@ import com.agespisa.servlet.util.JpaUtil;
 @ManagedBean
 @ViewScoped
 public class CadastroLancamentoBean implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
+	
 	private Lancamento lancamento = new Lancamento();
 	private List<Pessoa> todasPessoas;
 

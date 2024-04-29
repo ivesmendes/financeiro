@@ -6,6 +6,10 @@
 	version="2.1">
 	<persistence-unit name="FinanceiroPU">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+                <class>com.agespisa.servlet.model.Lancamento.</class>
+                <class>com.agespisa.sevlet.moldel.Pessoa</class>
+                
+                
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/financeiro" />
 			<property name="javax.persistence.jdbc.user" value="postgres" />

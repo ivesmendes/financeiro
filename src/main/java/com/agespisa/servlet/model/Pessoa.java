@@ -15,11 +15,11 @@ public class Pessoa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue
 	private Long id;
 	private String nome;
-
+        
+        @Id
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}
@@ -28,7 +28,9 @@ public class Pessoa implements Serializable{
 		this.id = id;
 	}
 
-	@Column (length = 60, nullable = false)
+	//@NotEmpty
+        //@Size(max = 60)
+        @Column (length = 60, nullable = false)
 	public String getNome() {
 		return nome;
 	}

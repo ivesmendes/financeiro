@@ -1,5 +1,8 @@
-package com.agespisa.servlet.model;
+package com.agespisa.servlet;
 
+import com.agespisa.servlet.model.Lancamento;
+import com.agespisa.servlet.model.Pessoa;
+import com.agespisa.servlet.model.TipoLancamento;
 import java.math.BigDecimal;
 import java.util.Calendar;
 

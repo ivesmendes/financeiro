@@ -1,5 +1,6 @@
 package com.agespisa.servlet.model;
 
+import com.agespisa.servlet.validation.DecimalPositivo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -63,8 +64,7 @@ public class Lancamento implements Serializable{
 		this.descricao = descricao;
 	}
         
-	//@NotNull
-        //@DecimalMin("0")
+	@DecimalPositivo
         @Column(precision = 10, scale = 2, nullable = false)
 	public BigDecimal getValor() {
 		return valor;

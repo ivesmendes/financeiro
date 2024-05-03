@@ -27,9 +27,9 @@
 						var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}" />
 				</h:selectOneMenu>
 				<h:outputLabel value="Descrição" />
-				<h:inputText size="60"
+				<h:inputText size="60" label="Descrição"
 					value="#{cadastroLancamentoBean.lancamento.descricao}"
-					label="Descrição" />
+					valueChangeListener="#{cadastroLancamentoBean.descricaoModificada}" /> 
 				<h:outputLabel value="Valor" />
 				<h:inputText size="12"
 					value="#{cadastroLancamentoBean.lancamento.valor}" label="Valor">

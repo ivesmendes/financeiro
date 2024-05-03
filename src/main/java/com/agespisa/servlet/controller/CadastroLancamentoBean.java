@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -58,7 +59,7 @@ public class CadastroLancamentoBean implements Serializable {
 			manager.close();
 		}
 	}
-
+	
 	public List<Pessoa> getTodasPessoas() {
 		return this.todasPessoas;
 	}
@@ -73,5 +74,11 @@ public class CadastroLancamentoBean implements Serializable {
 
 	public void setLancamento(Lancamento lancamento) {
 		this.lancamento = lancamento;
+	}
+	
+	public void descricaoModificada(ValueChangeEvent event) {
+		System.out.println("Valor antigo:" + event.getOldValue());
+		System.out.println("Novo valor:" + event.getNewValue());
+		FacesContext.getCurrentInstance().renderResponse();
 	}
 }

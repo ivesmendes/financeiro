@@ -7,7 +7,7 @@ import static java.lang.annotation.ElementType.PARAMETER;
 import java.lang.annotation.Retention;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Target;
-import static javax.persistence.AccessType.FIELD;
+import static java.lang.annotation.ElementType.FIELD;
 import javax.validation.Constraint;
 import javax.validation.OverridesAttribute;
 import javax.validation.Payload;

@@ -6,8 +6,8 @@
 	version="2.1">
 	<persistence-unit name="FinanceiroPU">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-                <class>com.agespisa.servlet.model.Lancamento.</class>
-                <class>com.agespisa.sevlet.moldel.Pessoa</class>
+                <class>com.agespisa.servlet.model.Lancamento</class>
+                <class>com.agespisa.servlet.model.Pessoa</class>
                 
                 
 		<properties>

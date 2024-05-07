@@ -29,7 +29,8 @@
 				<h:outputLabel value="Descrição" />
 				<h:inputText size="60" label="Descrição"
 					value="#{cadastroLancamentoBean.lancamento.descricao}"
-					valueChangeListener="#{cadastroLancamentoBean.descricaoModificada}" /> 
+					valueChangeListener="#{cadastroLancamentoBean.descricaoModificada}" 
+					immediate="true" />
 				<h:outputLabel value="Valor" />
 				<h:inputText size="12"
 					value="#{cadastroLancamentoBean.lancamento.valor}" label="Valor">

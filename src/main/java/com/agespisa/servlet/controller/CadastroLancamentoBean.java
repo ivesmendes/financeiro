@@ -47,6 +47,7 @@ public class CadastroLancamentoBean implements Serializable {
 			trx.begin();
 			CadastroLancamentos cadastro = new CadastroLancamentos(new Lancamentos(manager));
 			cadastro.salvar(this.lancamento);
+			
 			this.lancamento = new Lancamento();
 			context.addMessage(null, new FacesMessage("Lançamento salvo com sucesso!"));
 			trx.commit();

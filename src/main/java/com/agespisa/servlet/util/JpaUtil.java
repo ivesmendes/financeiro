@@ -6,10 +6,10 @@ import javax.persistence.Persistence;
 
 public class JpaUtil {
 	private static EntityManagerFactory factory;
-	static {
+	static {	
 		factory = Persistence.createEntityManagerFactory("FinanceiroPU");
 	}
-
+	
 	public static EntityManager getEntityManager() {
 		return factory.createEntityManager();
 	}

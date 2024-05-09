@@ -4,12 +4,16 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
 	<f:metadata>
 		<f:viewAction action="#{consultaLancamentosBean.consultar}" />
 	</f:metadata>
+	
 	<ui:define name="titulo">Consulta de lançamentos</ui:define>
+	
 	<ui:define name="corpo">
 		<h1>Consulta de lançamentos</h1>
+		
 		<h:form id="frm">
 			<h:dataTable value="#{consultaLancamentosBean.lancamentos}"
 				var="lancamento" border="1" cellspacing="0" cellpadding="2">

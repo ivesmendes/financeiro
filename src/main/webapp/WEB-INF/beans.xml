@@ -7,8 +7,4 @@
     http://java.sun.com/xml/ns/javaee http://jboss.org/schema/cdi/beans_1_0.xsd
     http://jboss.org/schema/weld/beans http://jboss.org/schema/weld/beans_1_1.xsd">
 
-  <weld:scan>
-    <weld:exclude name="org.springframework.data.jpa.repository.cdi.**" />
-    <weld:exclude name="com.agespisa.servlet.**" />
-  </weld:scan>
 </beans>

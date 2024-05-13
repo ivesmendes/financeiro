@@ -3,9 +3,9 @@ package com.agespisa.servlet.controller;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -73,6 +73,12 @@ public class CadastroLancamentoBean implements Serializable {
 		System.out.println("Valor antigo:" + event.getOldValue());
 		System.out.println("Novo valor:" + event.getNewValue());
 		FacesContext.getCurrentInstance().renderResponse();
+	}
+	
+	public void dataVencimentoAlterada(AjaxBehaviorEvent event) {
+		if(this.lancamento.getDataPagamento() == null) {
+			this.lancamento.setDataPagamento(this.lancamento.getDataVencimento());
+		}
 	}
 }
 

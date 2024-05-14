@@ -16,8 +16,9 @@
 		<h1>Cadastro de lançamento</h1>
 		
 		<h:form id="frm">
-			<h:messages showDetail="false" showSummary="true" />
-			<h:panelGrid columns="2">
+			<p:messages showDetail="false" showSummary="true"
+				autoUpdate="true" />
+			<p:panelGrid columns="2">
 				<p:outputLabel value="Tipo" for="tipo" />
                 <p:selectOneButton id="tipo"
                 		value="#{cadastroLancamentoBean.lancamento.tipo}">
@@ -32,9 +33,10 @@
 					<f:selectItems value="#{cadastroLancamentoBean.todasPessoas}"
 						var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}" />
 				</p:selectOneMenu>
-				<h:outputLabel value="Descrição" for="descricao"/>
-				<h:inputText id="descricao" size="60" 
-					value="#{cadastroLancamentoBean.lancamento.descricao}"/>
+				<p:outputLabel value="Descrição" for="descricao"/>
+				<p:autoComplete id="descricao" size="60" 
+					value="#{cadastroLancamentoBean.lancamento.descricao}"
+					completeMethod="#{cadastroLancamentoBean.pesquisarDescricoes}"/>
 				<h:outputLabel value="Valor" />
 				<h:inputText size="12"
 					value="#{cadastroLancamentoBean.lancamento.valor}" label="Valor">
@@ -57,10 +59,12 @@
 				<p:calendar size="12" id="dataPagamento" pattern="dd/MM/yyyy"
 					value="#{cadastroLancamentoBean.lancamento.dataPagamento}"/>
 				<h:outputLabel />
-				<h:commandButton value="Salvar"  action="#{cadastroLancamentoBean.salvar}" >
+				<p:commandButton value="Salvar"  
+					action="#{cadastroLancamentoBean.salvar}" 
+					icon="ui-icon-disk" update="@form">
 					<f:ajax execute="@form" render="@form"/>
-				</h:commandButton>
-			</h:panelGrid>
+				</p:commandButton>
+			</p:panelGrid>
 		</h:form>
 	</ui:define>
 </ui:composition>

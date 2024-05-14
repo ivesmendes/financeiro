@@ -14,6 +14,7 @@ import javax.inject.Named;
 import com.agespisa.servlet.model.Lancamento;
 import com.agespisa.servlet.model.Pessoa;
 import com.agespisa.servlet.model.TipoLancamento;
+import com.agespisa.servlet.repository.Lancamentos;
 import com.agespisa.servlet.repository.Pessoas;
 import com.agespisa.servlet.service.CadastroLancamentos;
 import com.agespisa.servlet.service.NegocioException;
@@ -29,6 +30,9 @@ public class CadastroLancamentoBean implements Serializable {
 	
 	@Inject
 	private Pessoas pessoas;
+	
+	@Inject
+	private Lancamentos lancamentos;
 	
 	private Lancamento lancamento = new Lancamento();
 	private List<Pessoa> todasPessoas;
@@ -79,6 +83,10 @@ public class CadastroLancamentoBean implements Serializable {
 		if(this.lancamento.getDataPagamento() == null) {
 			this.lancamento.setDataPagamento(this.lancamento.getDataVencimento());
 		}
+	}
+	
+	public List<String> pesquisarDescricoes(String descricao) {
+		return this.lancamentos.descricoesQueContem(descricao);
 	}
 }
 

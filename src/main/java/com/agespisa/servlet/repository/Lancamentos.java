@@ -32,4 +32,13 @@ public class Lancamentos implements Serializable {
 		this.manager.persist(lancamento);
 		
 	}
+	
+	public List<String> descricoesQueContem(String descricao) {
+		TypedQuery<String> query = manager.createQuery(
+				"select distinct descricao from Lancamento "
+				+ "where upper(descricao) like upper(:descricao)" ,
+				String.class);
+		query.setParameter("descricao", "%" + descricao + "%");
+		return query.getResultList();
+	}
 }

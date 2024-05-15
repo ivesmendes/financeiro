@@ -39,6 +39,10 @@ public class CadastroLancamentoBean implements Serializable {
 
 	public void prepararCadastro() {
 			this.todasPessoas = this.pessoas.todas();
+			
+			if(this.lancamento == null) {
+				this.lancamento = new Lancamento();
+			}
 	}
 
 	public void salvar() {

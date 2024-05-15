@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import com.agespisa.servlet.model.Lancamento;
@@ -23,7 +22,6 @@ public class Lancamentos implements Serializable {
 	}
 	
 	public List<Lancamento> todos() {
-		System.out.println("CHEGOU AQUI!");
 		TypedQuery<Lancamento> query = manager.createQuery("from Lancamento", Lancamento.class);
 		return query.getResultList();
 	}
@@ -40,5 +38,13 @@ public class Lancamentos implements Serializable {
 				String.class);
 		query.setParameter("descricao", "%" + descricao + "%");
 		return query.getResultList();
+	}
+	
+	public Lancamento porId(Long id) {
+		return manager.find(Lancamento.class, id);
+	}
+	
+	public Lancamento guardar(Lancamento lancamento) {
+		return this.manager.merge(lancamento);
 	}
 }

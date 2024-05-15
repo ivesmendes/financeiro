@@ -18,6 +18,6 @@ public class CadastroLancamentos implements Serializable {
 		if (lancamento.getDataPagamento() != null && lancamento.getDataPagamento().after(new Date())) {
 			throw new NegocioException("Data de pagamento não pode ser uma data futura.");
 		}
-		this.lancamentos.adicionar(lancamento);
+		this.lancamentos.guardar(lancamento);
 	}
 }

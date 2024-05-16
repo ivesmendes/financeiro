@@ -53,7 +53,15 @@
 						outcome="/CadastroLancamento">
 						<f:param name="id" value="#{lancamento.id}" />
 					</p:button>
+					<p:commandButton icon="ui-icon-trash" title="Excluir"
+						process="@this" update="@form"
+						action="#{consultaLancamentosBean.excluir}">
+						<f:setPropertyActionListener value="#{lancamento}"
+							target="#{consultaLancamentosBean.lancamentoSelecionado}" />
+					</p:commandButton>
 				</p:column>
+				<p:messages showDetail="false" showSummary="true"
+					p:autoUpdate="true"/>
 			</p:dataTable>
 		</h:form>
 	</ui:define>

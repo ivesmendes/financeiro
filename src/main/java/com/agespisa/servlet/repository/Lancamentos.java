@@ -16,10 +16,6 @@ public class Lancamentos implements Serializable {
 	@Inject
 	private EntityManager manager;
 
-	@Inject
-	public Lancamentos(EntityManager manager) {
-		this.manager = manager;
-	}
 	
 	public List<Lancamento> todos() {
 		TypedQuery<Lancamento> query = manager.createQuery("from Lancamento", Lancamento.class);
@@ -46,5 +42,9 @@ public class Lancamentos implements Serializable {
 	
 	public Lancamento guardar(Lancamento lancamento) {
 		return this.manager.merge(lancamento);
+	}
+	
+	public void remover(Lancamento lancamento) {
+		this.manager.remove(lancamento);
 	}
 }

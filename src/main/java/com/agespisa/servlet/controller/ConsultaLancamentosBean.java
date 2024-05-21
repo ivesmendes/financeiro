@@ -6,8 +6,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ViewScoped;
+
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -32,10 +33,16 @@ public class ConsultaLancamentosBean implements Serializable {
 	@Inject
 	private CadastroLancamentos cadastro;
 	
+	@PostConstruct
+	public void consultar() {
+		this.lancamentos = lancamentosRepository.todos();
+	}
+	
 	public void excluir() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		
 		try {
+			System.out.println("VALOR: " + lancamentoSelecionado.getDescricao());
 			this.cadastro.excluir(this.lancamentoSelecionado);
 			this.consultar();
 			
@@ -49,19 +56,6 @@ public class ConsultaLancamentosBean implements Serializable {
 			context.addMessage(null, mensagem);
 		}
 	}
-	
-	public ConsultaLancamentosBean() {
-	}
-
-	public ConsultaLancamentosBean(Lancamentos lancamentosRepository, List<Lancamento> lancamentos) {
-		this.lancamentosRepository = lancamentosRepository;
-		this.lancamentos = lancamentos;
-	}
-
-	@PostConstruct
-	public void consultar() {
-		this.lancamentos = lancamentosRepository.todos();
-	}
 
 	public List<Lancamento> getLancamentos() {
 		return lancamentos;
@@ -74,6 +68,8 @@ public class ConsultaLancamentosBean implements Serializable {
 	public void setLancamentoSelecionado(Lancamento lancamentoSelecionado) {
 		this.lancamentoSelecionado = lancamentoSelecionado;
 	}
+
+	
 	
 	
 }

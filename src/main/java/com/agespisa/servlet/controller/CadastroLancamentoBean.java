@@ -3,6 +3,7 @@ package com.agespisa.servlet.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
@@ -37,6 +38,7 @@ public class CadastroLancamentoBean implements Serializable {
 	private Lancamento lancamento = new Lancamento();
 	private List<Pessoa> todasPessoas;
 
+	@PostConstruct
 	public void prepararCadastro() {
 			this.todasPessoas = this.pessoas.todas();
 			

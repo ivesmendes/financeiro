@@ -65,7 +65,7 @@ public class Lancamento implements Serializable{
 	}
         
 	@DecimalPositivo
-        @Column(precision = 10, scale = 2, nullable = false)
+    @Column(precision = 10, scale = 2, nullable = false)
 	public BigDecimal getValor() {
 		return valor;
 	}

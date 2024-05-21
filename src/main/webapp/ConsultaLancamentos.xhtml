@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui:composition template="/WEB-INF/template/Layout.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -15,9 +15,10 @@
 	<ui:define name="corpo">
 		<h1>Consulta de lançamentos</h1>
 		
-		<h:form id="frm">
-			<p:dataTable value="#{consultaLancamentosBean.lancamentos}"
-				var="lancamento" border="1" cellspacing="0" cellpadding="2"
+		<h:form id="frm">	
+		
+			<p:dataTable id="lancamentoTableId" value="#{consultaLancamentosBean.lancamentos}"
+				var="lancamento" rowKey="#{lancamento.id}" border="1" cellspacing="0" cellpadding="2"
 				paginator="true" rows="5" paginatorPosition="bottom">
 				<p:column headerText="Pessoa" sortBy="#{lancamento.pessoa.nome}">
 					<h:outputText value="#{lancamento.pessoa.nome}" />
@@ -54,8 +55,9 @@
 						<f:param name="id" value="#{lancamento.id}" />
 					</p:button>
 					<p:commandButton icon="ui-icon-trash" title="Excluir"
-						process="@this" update="@form"
-						action="#{consultaLancamentosBean.excluir}">
+						process="@this"
+						oncomplete="PF('confirmacaoExclusao').show()"
+						update=":frm:confirmacaoExclusaoDialog" action="#{consultaLancamentosBean.excluir}">
 						<f:setPropertyActionListener value="#{lancamento}"
 							target="#{consultaLancamentosBean.lancamentoSelecionado}" />
 					</p:commandButton>
@@ -63,6 +65,17 @@
 				<p:messages showDetail="false" showSummary="true"
 					p:autoUpdate="true"/>
 			</p:dataTable>
+			
+			
+			<p:confirmDialog header="Exclusão de lançamento" 
+				message="Tem certeza que deseja excluir o lançamento #{consultaLancamentosBean.lancamentoSelecionado.descricao}?"
+				widgetVar="confirmacaoExclusao" id="confirmacaoExclusaoDialog">
+				<p:button value="Não" onclick="PF('confirmacaoExclusao').hide(); return false;" />
+				<p:commandButton value="Sim" oncomplete="PF('confirmacaoExclusao').hide();"
+					action="#{consultaLancamentosBean.excluir}" process="@this" update=":frm:lancamentoTableId" id="yesButton"  onclick="location.reload();" />
+			</p:confirmDialog>
+
+			
 		</h:form>
 	</ui:define>
 </ui:composition>
